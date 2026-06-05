@@ -1,0 +1,25 @@
+<main class="countdown-page">
+  <section class="countdown" aria-labelledby="countdown-title">
+    <h1 id="countdown-title">До {{ targetLabel }}</h1>
+    <p class="subtitle">
+      Таймер до ЁК
+    </p>
+
+    <div class="timer" role="timer" aria-live="polite">
+      @for (unit of timeUnits(); track unit.label) {
+        <div class="timer-unit">
+          <span class="timer-value">{{ unit.value }}</span>
+          <span class="timer-label">{{ unit.label }}</span>
+        </div>
+      }
+    </div>
+
+    <p class="status">
+      @if (isFinished()) {
+        Дата наступила.
+      } @else {
+        Время ещё не пришло, ждем-с...
+      }
+    </p>
+  </section>
+</main>
